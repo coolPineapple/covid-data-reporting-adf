@@ -95,7 +95,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(@activity('Get Metadata').output.columnCount, 13)",
+						"value": "@equals(activity('Get File Metadata').output.columnCount,13)",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
@@ -184,6 +184,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
