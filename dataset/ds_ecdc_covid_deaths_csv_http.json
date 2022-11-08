@@ -1,0 +1,22 @@
+{
+	"name": "ds_ecdc_covid_deaths_csv_http",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ecdc_covid_csv_http",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "cloudboxacademy/covid19/main/ecdc_data/cases_deaths.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
