@@ -29,7 +29,8 @@
 					"dataset": {
 						"referenceName": "ds_ecdc_file_list_json",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
