@@ -1,5 +1,5 @@
 {
-	"name": "pl_ingest_deaths_data",
+	"name": "pl_ingest_ecdc_covid_data",
 	"properties": {
 		"activities": [
 			{
@@ -48,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_ecdc_covid_deaths_csv_http",
+						"referenceName": "ds_ecdc_csv_http",
 						"type": "DatasetReference",
 						"parameters": {
 							"relativeURL": {
@@ -60,7 +60,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_ecdc_covid_deaths_csv_dl",
+						"referenceName": "ds_ecdc_csv_dl",
 						"type": "DatasetReference",
 						"parameters": {
 							"fileName": {
