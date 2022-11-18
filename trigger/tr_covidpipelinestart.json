@@ -2,7 +2,7 @@
 	"name": "tr_covidpipelinestart",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
