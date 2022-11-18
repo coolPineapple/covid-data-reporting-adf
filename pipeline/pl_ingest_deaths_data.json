@@ -1,9 +1,9 @@
 {
-	"name": "pl_ingest_ecdc_data",
+	"name": "pl_ingest_deaths_data",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy ecdc covid data",
+				"name": "Copy cases and deaths data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,17 +49,37 @@
 				"inputs": [
 					{
 						"referenceName": "ds_ecdc_covid_deaths_csv_http",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"relativeURL": {
+								"value": "@pipeline().parameters.sourceRelativeURL",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_ecdc_covid_deaths_csv_dl",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": {
+								"value": "@pipeline().parameters.sinkFileName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"sourceRelativeURL": {
+				"type": "string"
+			},
+			"sinkFileName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
