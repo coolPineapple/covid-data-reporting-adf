@@ -53,14 +53,27 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set fileName variable",
+							"name": "Set SourceFileName var",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "sourceRelativeURL",
+								"variableName": "sinkFileName",
 								"value": {
 									"value": "@item().sourceRelativeURL",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set sinkFileName var",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "sinkFileName",
+								"value": {
+									"value": "@item().sinkFileName",
 									"type": "Expression"
 								}
 							}
@@ -71,6 +84,9 @@
 		],
 		"variables": {
 			"sourceRelativeURL": {
+				"type": "String"
+			},
+			"sinkFileName": {
 				"type": "String"
 			}
 		},
