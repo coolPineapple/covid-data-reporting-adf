@@ -298,12 +298,7 @@
 							{
 								"referenceName": "ds_ecdc_csv_http",
 								"type": "DatasetReference",
-								"parameters": {
-									"relativeURL": {
-										"value": "@pipeline().parameters.sourceRelativeURL",
-										"type": "Expression"
-									}
-								}
+								"parameters": {}
 							}
 						],
 						"outputs": [
@@ -331,7 +326,7 @@
 					"sinkFileName": {
 						"type": "string"
 					},
-					"sourc": {
+					"baseURL": {
 						"type": "string"
 					}
 				},
