@@ -27,14 +27,6 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/75539e79-cac7-4b8e-945a-2eda2abc8abf/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/coviddatareportinggsa"
 		},
-		"tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sourceRelativeURL": {
-			"type": "string",
-			"defaultValue": "cloudboxacademy/covid19/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sinkFileName": {
-			"type": "string",
-			"defaultValue": "covid19/hospital_admissions.csv"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -76,12 +68,6 @@
 					},
 					"tr_covidpipelinestart_properties_typeProperties_scope": {
 						"value": "[parameters('tr_covidpipelinestart_properties_typeProperties_scope')]"
-					},
-					"tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sourceRelativeURL": {
-						"value": "[parameters('tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sourceRelativeURL')]"
-					},
-					"tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sinkFileName": {
-						"value": "[parameters('tr_ingest_hospital_admission_data_pl_properties_pl_ingest_ecdc_covid_data_parameters_sinkFileName')]"
 					}
 				}
 			},
