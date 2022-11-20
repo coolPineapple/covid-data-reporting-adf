@@ -21,7 +21,7 @@
 		},
 		"ls_ecdc_covid_csv_http_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com"
+			"defaultValue": "@{linkedService().baseURL}"
 		},
 		"tr_covidpipelinestart_properties_typeProperties_scope": {
 			"type": "string",
@@ -125,6 +125,9 @@
 						"type": "string"
 					},
 					"sinkFileName": {
+						"type": "string"
+					},
+					"sourc": {
 						"type": "string"
 					}
 				},
@@ -478,6 +481,11 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"baseURL": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {

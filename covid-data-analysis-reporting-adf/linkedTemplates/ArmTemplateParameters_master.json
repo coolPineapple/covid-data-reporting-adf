@@ -15,7 +15,7 @@
 			"value": "https://coviddatareportingdlsa.dfs.core.windows.net/"
 		},
 		"ls_ecdc_covid_csv_http_properties_typeProperties_url": {
-			"value": "https://raw.githubusercontent.com"
+			"value": "@{linkedService().baseURL}"
 		},
 		"tr_covidpipelinestart_properties_typeProperties_scope": {
 			"value": "/subscriptions/75539e79-cac7-4b8e-945a-2eda2abc8abf/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/coviddatareportinggsa"

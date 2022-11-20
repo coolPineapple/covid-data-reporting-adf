@@ -21,7 +21,7 @@
 		},
 		"ls_ecdc_covid_csv_http_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com"
+			"defaultValue": "@{linkedService().baseURL}"
 		},
 		"tr_covidpipelinestart_properties_typeProperties_scope": {
 			"type": "string",
