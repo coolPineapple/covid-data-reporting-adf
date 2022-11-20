@@ -49,13 +49,7 @@
 				"inputs": [
 					{
 						"referenceName": "ds_ecdc_csv_http",
-						"type": "DatasetReference",
-						"parameters": {
-							"relativeURL": {
-								"value": "@pipeline().parameters.sourceRelativeURL",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
