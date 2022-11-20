@@ -328,16 +328,49 @@
 						}
 					},
 					{
-						"name": "ForEach1",
+						"name": "for each file in file_list",
 						"type": "ForEach",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "file list lookup",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"userProperties": [],
-						"typeProperties": {}
+						"typeProperties": {
+							"items": {
+								"value": "@activity('file list lookup').output.value",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "Set fileName variable",
+									"type": "SetVariable",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "sourceRelativeURL",
+										"value": {
+											"value": "@item().value",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"variables": {
+					"sourceRelativeURL": {
+						"type": "String"
+					}
 				},
 				"annotations": []
 			},
