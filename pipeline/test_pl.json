@@ -32,6 +32,26 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "for each file in file_list",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "file list lookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('file list lookup').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
 			}
 		],
 		"annotations": []
