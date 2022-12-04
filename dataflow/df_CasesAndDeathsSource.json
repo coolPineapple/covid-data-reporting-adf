@@ -1,5 +1,5 @@
 {
-	"name": "CasesAndDeathsSource",
+	"name": "df_CasesAndDeathsSource",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
