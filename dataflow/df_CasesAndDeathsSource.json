@@ -55,7 +55,7 @@
 				"          Column_4 as string,",
 				"          Column_5 as string",
 				"     ),",
-				"     allowSchemaDrift: true,",
+				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> countryLookupSource",
 				"covidCasesAndDeaths filter(continent == \"America\" && not(isNull(country_code))) ~> FilterUSAonly",
