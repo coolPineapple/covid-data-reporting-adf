@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "FilterUSAonly"
+				},
+				{
+					"name": "SelectOnlyRequiredFields"
 				}
 			],
 			"scriptLines": [
@@ -35,7 +38,18 @@
 				"     limit: 2000,",
 				"     ignoreNoFilesFound: false,",
 				"     dateFormats: ['yyyy-MM-dd']) ~> covidCasesAndDeaths",
-				"covidCasesAndDeaths filter(continent == \"America\" && not(isNull(country_code))) ~> FilterUSAonly"
+				"covidCasesAndDeaths filter(continent == \"America\" && not(isNull(country_code))) ~> FilterUSAonly",
+				"FilterUSAonly select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          population,",
+				"          case_indicator = indicator,",
+				"          daily_count,",
+				"          reported_date = date,",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields"
 			]
 		}
 	}
