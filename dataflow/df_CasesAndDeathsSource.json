@@ -53,7 +53,14 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields",
-				"SelectOnlyRequiredFields pivot(columnNaming: '$N$V',",
+				"SelectOnlyRequiredFields pivot(groupBy(country,",
+				"          country_code,",
+				"          reported_date,",
+				"          population,",
+				"          source),",
+				"     pivotBy(case_indicator, ['deaths', 'confirmed cases']),",
+				"     counts = sum(daily_count),",
+				"     columnNaming: '$N_$V',",
 				"     lateral: true) ~> pivotOnCaseIndicator"
 			]
 		}
