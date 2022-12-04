@@ -1,24 +1,36 @@
 {
-	"name": "dataflow1",
+	"name": "df_covid_cases_deaths",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ds_ecdc_file_list_json",
+						"referenceName": "ds_cases_and_deaths_df",
 						"type": "DatasetReference"
 					},
-					"name": "TestFileListDF"
+					"name": "covidCasesAndDeaths"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"source(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as string,",
+				"          indicator as string,",
+				"          daily_count as string,",
+				"          date as string,",
+				"          rate_14_day as string,",
+				"          source as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: true,",
+				"     limit: 2000,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> TestFileListDF"
+				"     dateFormats: ['yyyy-MM-dd']) ~> covidCasesAndDeaths"
 			]
 		}
 	}
