@@ -1,5 +1,5 @@
 {
-	"name": "df_covid_cases_deaths",
+	"name": "CasesAndDeathsSource",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "FilterUSAonly"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          country as string,",
@@ -30,7 +34,8 @@
 				"     validateSchema: true,",
 				"     limit: 2000,",
 				"     ignoreNoFilesFound: false,",
-				"     dateFormats: ['yyyy-MM-dd']) ~> covidCasesAndDeaths"
+				"     dateFormats: ['yyyy-MM-dd']) ~> covidCasesAndDeaths",
+				"covidCasesAndDeaths filter(continent == \"America\" && not(isNull(country_code))) ~> FilterUSAonly"
 			]
 		}
 	}
