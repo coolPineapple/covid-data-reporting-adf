@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "SelectOnlyRequiredFields"
+				},
+				{
+					"name": "pivotOnCaseIndicator"
 				}
 			],
 			"scriptLines": [
@@ -49,7 +52,9 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields"
+				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredFields",
+				"SelectOnlyRequiredFields pivot(columnNaming: '$N$V',",
+				"     lateral: true) ~> pivotOnCaseIndicator"
 			]
 		}
 	}
