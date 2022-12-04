@@ -490,7 +490,9 @@
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation"
+						"type": "AzureBlobFSLocation",
+						"folderPath": "population",
+						"fileSystem": "raw"
 					},
 					"columnDelimiter": "\t",
 					"escapeChar": "\\",
