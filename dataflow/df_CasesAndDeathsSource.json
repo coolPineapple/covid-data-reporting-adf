@@ -29,6 +29,12 @@
 				},
 				{
 					"name": "pivotOnCaseIndicator"
+				},
+				{
+					"name": "lookupCountryCode"
+				},
+				{
+					"name": "selectForSink"
 				}
 			],
 			"scriptLines": [
@@ -78,7 +84,27 @@
 				"     pivotBy(case_indicator, ['deaths', 'confirmed cases']),",
 				"     counts = sum(daily_count),",
 				"     columnNaming: '$N_$V',",
-				"     lateral: true) ~> pivotOnCaseIndicator"
+				"     lateral: true) ~> pivotOnCaseIndicator",
+				"pivotOnCaseIndicator, countryLookupSource lookup(pivotOnCaseIndicator@country == countryLookupSource@country,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookupCountryCode",
+				"lookupCountryCode select(mapColumn(",
+				"          country = pivotOnCaseIndicator@country,",
+				"          country = countryLookupSource@country,",
+				"          continent,",
+				"          country_code,",
+				"          country_code_3_digit,",
+				"          reported_date,",
+				"          {counts_confirmed cases},",
+				"          counts_deaths,",
+				"          population = pivotOnCaseIndicator@population,",
+				"          source,",
+				"          country_code_2_digit,",
+				"          population = countryLookupSource@population",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: true) ~> selectForSink"
 			]
 		}
 	}
