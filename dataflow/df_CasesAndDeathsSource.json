@@ -19,7 +19,16 @@
 					"name": "countryLookupSource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_processed_cases_and_deaths",
+						"type": "DatasetReference"
+					},
+					"name": "CasesAndDeathsSink",
+					"description": "Add sink dataset for cases and deaths"
+				}
+			],
 			"transformations": [
 				{
 					"name": "FilterUSAonly"
@@ -104,7 +113,15 @@
 				"          population = countryLookupSource@population",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: true) ~> selectForSink"
+				"     skipDuplicateMapOutputs: true) ~> selectForSink",
+				"selectForSink sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CasesAndDeathsSink"
 			]
 		}
 	}
