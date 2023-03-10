@@ -119,11 +119,7 @@
 						"referenceName": "ds_population_raw_gz",
 						"type": "DatasetReference"
 					},
-					"fieldList": [
-						"columnCount",
-						"size",
-						"itemType"
-					],
+					"fieldList": [],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
 						"recursive": true,
