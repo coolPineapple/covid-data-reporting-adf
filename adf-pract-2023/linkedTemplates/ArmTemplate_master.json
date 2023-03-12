@@ -27,7 +27,7 @@
 			"type": "string",
 			"defaultValue": "@{linkedService().baseURL}"
 		},
-		"tr_covidpipelinestart_properties_typeProperties_scope": {
+		"tr_covidpipeline_start_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/3689fa55-7eaf-4e24-ae98-2ce284611aa9/resourceGroups/pract-1/providers/Microsoft.Storage/storageAccounts/ablobcoviddata"
 		},
@@ -73,8 +73,8 @@
 					"ls_ecdc_covid_csv_http_properties_typeProperties_url": {
 						"value": "[parameters('ls_ecdc_covid_csv_http_properties_typeProperties_url')]"
 					},
-					"tr_covidpipelinestart_properties_typeProperties_scope": {
-						"value": "[parameters('tr_covidpipelinestart_properties_typeProperties_scope')]"
+					"tr_covidpipeline_start_properties_typeProperties_scope": {
+						"value": "[parameters('tr_covidpipeline_start_properties_typeProperties_scope')]"
 					}
 				}
 			},
