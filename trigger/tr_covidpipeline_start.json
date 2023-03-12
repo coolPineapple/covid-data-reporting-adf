@@ -1,5 +1,5 @@
 {
-	"name": "tr_covidpipelinestart",
+	"name": "tr_covidpipeline_start",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -13,8 +13,8 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/population-data/blobs/population-by-age.tsv",
-			"ignoreEmptyBlobs": false,
+			"blobPathBeginsWith": "/population-data/blobs/population-by-age.tsv.gz",
+			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/3689fa55-7eaf-4e24-ae98-2ce284611aa9/resourceGroups/pract-1/providers/Microsoft.Storage/storageAccounts/ablobcoviddata",
 			"events": [
 				"Microsoft.Storage.BlobCreated"
