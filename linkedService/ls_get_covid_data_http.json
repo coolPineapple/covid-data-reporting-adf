@@ -1,0 +1,17 @@
+{
+	"name": "ls_get_covid_data_http",
+	"properties": {
+		"parameters": {
+			"baseURL": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "@{linkedService().baseURL}",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
