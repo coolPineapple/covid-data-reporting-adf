@@ -11,6 +11,9 @@
 		"ls_adls_covidreportingdl_accountKey": {
 			"value": ""
 		},
+		"ls_ablob_logging_dir_connectionString": {
+			"value": ""
+		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"value": "https://adlsgen2coviddata.dfs.core.windows.net/"
 		},

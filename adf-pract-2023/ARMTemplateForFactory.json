@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdl'"
 		},
+		"ls_ablob_logging_dir_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ablob_logging_dir'"
+		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsgen2coviddata.dfs.core.windows.net/"
@@ -227,6 +231,27 @@
 								"value": "@equals(activity('Get File Metadata').output.columnCount,13)",
 								"type": "Expression"
 							},
+							"ifFalseActivities": [
+								{
+									"name": "Send Mail Dummy",
+									"type": "WebActivity",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.00:04:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"url": "https://some_dummyURL",
+										"method": "POST",
+										"headers": {},
+										"body": "Dummy Message"
+									}
+								}
+							],
 							"ifTrueActivities": [
 								{
 									"name": "Copy Population Data_copy1",
@@ -287,6 +312,46 @@
 											"parameters": {}
 										}
 									]
+								},
+								{
+									"name": "Delete source file",
+									"type": "Delete",
+									"dependsOn": [
+										{
+											"activity": "Copy Population Data_copy1",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "0.00:02:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "ds_population_raw_gz",
+											"type": "DatasetReference",
+											"parameters": {}
+										},
+										"logStorageSettings": {
+											"linkedServiceName": {
+												"referenceName": "ls_ablob_logging_dir",
+												"type": "LinkedServiceReference"
+											},
+											"path": "logs"
+										},
+										"enableLogging": true,
+										"storeSettings": {
+											"type": "AzureBlobStorageReadSettings",
+											"recursive": false,
+											"enablePartitionDiscovery": false
+										}
+									}
 								}
 							]
 						}
@@ -338,7 +403,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_gz')]",
-				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]"
+				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]",
+				"[concat(variables('factoryId'), '/linkedServices/ls_ablob_logging_dir')]"
 			]
 		},
 		{
@@ -971,6 +1037,19 @@
 				"[concat(variables('factoryId'), '/datasets/ds_country_lookup')]",
 				"[concat(variables('factoryId'), '/datasets/ds_processed_cases_and_deaths')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_ablob_logging_dir')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_ablob_logging_dir_connectionString')]"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

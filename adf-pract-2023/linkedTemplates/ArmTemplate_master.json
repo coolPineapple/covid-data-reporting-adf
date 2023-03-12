@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdl'"
 		},
+		"ls_ablob_logging_dir_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ablob_logging_dir'"
+		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsgen2coviddata.dfs.core.windows.net/"
@@ -59,6 +63,9 @@
 					},
 					"ls_adls_covidreportingdl_accountKey": {
 						"value": "[parameters('ls_adls_covidreportingdl_accountKey')]"
+					},
+					"ls_ablob_logging_dir_connectionString": {
+						"value": "[parameters('ls_ablob_logging_dir_connectionString')]"
 					},
 					"ls_adls_covidreportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportingdl_properties_typeProperties_url')]"
