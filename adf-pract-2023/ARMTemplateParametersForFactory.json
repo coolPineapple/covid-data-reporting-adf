@@ -8,10 +8,10 @@
 		"ls_ablob_covidreportingsa_connectionString": {
 			"value": ""
 		},
-		"ls_adls_covidreportingdl_accountKey": {
+		"ls_ablob_logging_dir_connectionString": {
 			"value": ""
 		},
-		"ls_ablob_logging_dir_connectionString": {
+		"ls_adls_covidreportingdl_accountKey": {
 			"value": ""
 		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
@@ -21,7 +21,7 @@
 			"value": "@{linkedService().baseURL}"
 		},
 		"tr_covidpipelinestart_properties_typeProperties_scope": {
-			"value": "/subscriptions/75539e79-cac7-4b8e-945a-2eda2abc8abf/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/coviddatareportinggsa"
+			"value": "/subscriptions/3689fa55-7eaf-4e24-ae98-2ce284611aa9/resourceGroups/pract-1/providers/Microsoft.Storage/storageAccounts/ablobcoviddata"
 		}
 	}
 }

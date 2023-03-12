@@ -11,13 +11,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_ablob_covidreportingsa'"
 		},
-		"ls_adls_covidreportingdl_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdl'"
-		},
 		"ls_ablob_logging_dir_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_ablob_logging_dir'"
+		},
+		"ls_adls_covidreportingdl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportingdl'"
 		},
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"type": "string",
@@ -29,7 +29,7 @@
 		},
 		"tr_covidpipelinestart_properties_typeProperties_scope": {
 			"type": "string",
-			"defaultValue": "/subscriptions/75539e79-cac7-4b8e-945a-2eda2abc8abf/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/coviddatareportinggsa"
+			"defaultValue": "/subscriptions/3689fa55-7eaf-4e24-ae98-2ce284611aa9/resourceGroups/pract-1/providers/Microsoft.Storage/storageAccounts/ablobcoviddata"
 		},
 		"containerUri": {
 			"type": "string",
@@ -61,11 +61,11 @@
 					"ls_ablob_covidreportingsa_connectionString": {
 						"value": "[parameters('ls_ablob_covidreportingsa_connectionString')]"
 					},
-					"ls_adls_covidreportingdl_accountKey": {
-						"value": "[parameters('ls_adls_covidreportingdl_accountKey')]"
-					},
 					"ls_ablob_logging_dir_connectionString": {
 						"value": "[parameters('ls_ablob_logging_dir_connectionString')]"
+					},
+					"ls_adls_covidreportingdl_accountKey": {
+						"value": "[parameters('ls_adls_covidreportingdl_accountKey')]"
 					},
 					"ls_adls_covidreportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportingdl_properties_typeProperties_url')]"
