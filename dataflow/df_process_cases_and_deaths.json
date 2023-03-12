@@ -12,10 +12,6 @@
 					"name": "covidCasesAndDeaths"
 				},
 				{
-					"dataset": {
-						"referenceName": "ds_country_lookup",
-						"type": "DatasetReference"
-					},
 					"name": "countryLookupSource"
 				}
 			],
@@ -70,8 +66,7 @@
 				"          population as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> countryLookupSource",
+				"     validateSchema: false) ~> countryLookupSource",
 				"covidCasesAndDeaths filter(continent == \"America\" && not(isNull(country_code))) ~> FilterUSAonly",
 				"FilterUSAonly select(mapColumn(",
 				"          country,",
