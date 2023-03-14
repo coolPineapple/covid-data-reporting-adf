@@ -83,19 +83,7 @@
 									}
 								},
 								"enableStaging": false
-							},
-							"outputs": [
-								{
-									"referenceName": "ds_ecdc_csv_dl",
-									"type": "DatasetReference",
-									"parameters": {
-										"fileName": {
-											"value": "@item().sinkFileName",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+							}
 						}
 					]
 				}
