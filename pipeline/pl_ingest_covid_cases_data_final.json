@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup for file list').output.value\r\n",
+						"value": "@activity('Lookup for file list').output.value\n",
 						"type": "Expression"
 					},
 					"isSequential": true,
