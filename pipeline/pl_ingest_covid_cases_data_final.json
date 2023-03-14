@@ -74,10 +74,12 @@
 		],
 		"variables": {
 			"sourceRelativeURL": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "/coolPineapple/covid-data-reporting/main/data/covid_cases_deaths.csv"
 			},
 			"sinkFilename": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "covid_cases_deaths.csv"
 			}
 		},
 		"annotations": []
