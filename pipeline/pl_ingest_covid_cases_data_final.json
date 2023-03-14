@@ -29,7 +29,8 @@
 					"dataset": {
 						"referenceName": "ds_ecdc_file_list_json",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -46,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup for file list').output",
+						"value": "@activity('Lookup for file list').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
