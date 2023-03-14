@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup for file list').output.value\n",
+						"value": "@activity('Lookup for file list').output",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -128,14 +128,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"sourceRelativeURL": {
-				"type": "string"
-			},
-			"sinkFilename": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
