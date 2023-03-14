@@ -1,11 +1,6 @@
 {
 	"name": "ls_get_covid_data_http",
 	"properties": {
-		"parameters": {
-			"baseURL": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
