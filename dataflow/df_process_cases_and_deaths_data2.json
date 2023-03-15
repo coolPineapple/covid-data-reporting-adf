@@ -1,0 +1,36 @@
+{
+	"name": "df_process_cases_and_deaths_data2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_cases_and_deaths_df",
+						"type": "DatasetReference"
+					},
+					"name": "casesanddeathsdata",
+					"description": "Add source cases and deaths data dataset"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as string,",
+				"          indicator as string,",
+				"          daily_count as string,",
+				"          date as string,",
+				"          rate_14_day as string,",
+				"          source as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> casesanddeathsdata"
+			]
+		}
+	}
+}
