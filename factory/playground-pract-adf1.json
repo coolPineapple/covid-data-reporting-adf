@@ -1,0 +1,9 @@
+{
+	"name": "playground-pract-adf1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2d6e0565-4e72-452f-b5b0-e12c6086a1dc",
+		"tenantId": "e18db17b-e2c5-4db1-9350-26f1d6f7ba63"
+	}
+}
